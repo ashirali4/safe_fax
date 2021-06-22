@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "239069074868",
+    "project_id": "safe-fax-93bd2",
+    "storage_bucket": "safe-fax-93bd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239069074868:android:e1cfa11cfa4bd3896b8ee1",
+        "android_client_info": {
+          "package_name": "com.fax.salesfax.sales_fax"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239069074868-ricqk9gfeoiomok8g3ph4e5tmau4s6mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnKACtalz0hLAA2S_RPuuQ3sIQcGM_tfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239069074868-ricqk9gfeoiomok8g3ph4e5tmau4s6mu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239069074868:android:0a9555334a0724a66b8ee1",
+        "android_client_info": {
+          "package_name": "com.faxes.safe_fax"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239069074868-ricqk9gfeoiomok8g3ph4e5tmau4s6mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnKACtalz0hLAA2S_RPuuQ3sIQcGM_tfk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239069074868-ricqk9gfeoiomok8g3ph4e5tmau4s6mu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
