@@ -30,17 +30,26 @@ class _SignUpState extends State<SignUp> {
 
   Future<void> handleSignUp() async {
      if(password.text==confirmpassword.text){
-       CustomDialogue("Sign Up Completed",Icons.check_circle,context,null,'Your Profile has been created you can Login now!');
-       // showProgressDilogue(context);
-       // RegistrationUser user=RegistrationUser(fullname.text, compnay.text, email.text, phone.text, username.text, password.text);
-       // Firebase_Handler firebase_handler=Firebase_Handler();
-       // await firebase_handler.register(user);
-       // Navigator.pop(context);
+       showProgressDilogue(context);
+       RegistrationUser user=RegistrationUser(fullname.text, compnay.text, email.text, phone.text, username.text, password.text);
+       Firebase_Handler firebase_handler=Firebase_Handler();
+       var userd=await firebase_handler.register(user);
+       Navigator.pop(context);
+       if(!userd['error']){
+         CustomDialogue("Sign Up Completed",Icons.check_circle,context,SignUpDailogueHandle,'Your Profile has been created you can Login now!','Login Now');
+       }
+       else{
+         showToast("Error in Sign Up");
+       }
      }
      else{
        showToast("Password and Confirm password not matched");
      }
 
+  }
+  void SignUpDailogueHandle(){
+    Navigator.pop(context);
+    Navigator.pop(context);
   }
   @override
   Widget build(BuildContext context) {
@@ -50,7 +59,6 @@ class _SignUpState extends State<SignUp> {
             child: Container(
               color: Colors.white,
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
               child: Padding(
                 padding: const EdgeInsets.only(left: 25,right: 25),
                 child: Column(
@@ -63,7 +71,7 @@ class _SignUpState extends State<SignUp> {
                             child: Image.asset("assets/logoo.png"))
                       ],
                     ),
-                    SingleChildScrollView(
+                    Center(
                       child: Form(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -210,7 +218,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                     ),
-
+                    SizedBox(height: 30,),
                   ],
                 ),
               ),

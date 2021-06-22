@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safe_fax/widgets/buttons/round_button.dart';
 
-void CustomDialogue(String message,IconData icon,BuildContext context,Function function,[String message2]){
+void CustomDialogue(String message,IconData icon,BuildContext context,Function function,[String message2,String buttonText]){
 
     showGeneralDialog(
       barrierLabel: "Barrier",
@@ -49,7 +49,7 @@ void CustomDialogue(String message,IconData icon,BuildContext context,Function f
                         height: 75,
                         child: Padding(
                            padding: const EdgeInsets.all(20),
-                          child: RoundButton("Login Now",null),
+                          child: RoundButton(buttonText,function),
                         ),
                       ),
                     ],

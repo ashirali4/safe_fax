@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:safe_fax/pages/auth/login.dart';
 import 'package:safe_fax/pages/auth/signup.dart';
+import 'package:safe_fax/pages/dashboard/main_widget.dart';
 
 
 
@@ -20,6 +21,9 @@ class RouteGenerator {
         break;
       case 'signup':
         _pageWidget = SignUp();
+        break;
+      case 'home':
+        _pageWidget = MainWidget();
         break;
       // case '/AdDetails':
       //   _pageWidget = AdDetailsWidget(product: arg);

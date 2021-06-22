@@ -6,6 +6,8 @@ import 'package:safe_fax/components/loaders/loader.dart';
 import 'package:safe_fax/services/firebase/net.dart';
 import 'package:safe_fax/widgets/buttons/round_button.dart';
 
+import '../../components/toast.dart';
+
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -18,11 +20,25 @@ class _LoginState extends State<Login> {
 
 
 
-  void signIn(){
-   showProgressDilogue(context);
-   Firebase_Handler firebase_handler=Firebase_Handler();
-   var user=firebase_handler.signIn(username.text, password.text);
-   
+  Future<void> signIn() async {
+    if(username.text==''){
+      showToast('Email can\'t be Empty!');
+
+    }
+    else if(password.text==''){
+      showToast('Password  can\'t be Empty!');
+    }
+    else{
+      showProgressDilogue(context);
+      Firebase_Handler firebase_handler=Firebase_Handler();
+      var user=await firebase_handler.signIn(username.text, password.text);
+      if(!user["error"]){
+        showToast('Logged In Successfully');
+      }
+      else{
+        showToast('Error in Login');
+      }
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -67,6 +83,7 @@ class _LoginState extends State<Login> {
                        Container(
                          child: TextFormField(
                            controller: username,
+                           keyboardType: TextInputType.emailAddress,
                            decoration: InputDecoration(
                                contentPadding: EdgeInsets.all(20),
                                prefixIcon: Icon(LineIcons.userAlt),
@@ -117,7 +134,7 @@ class _LoginState extends State<Login> {
                          ),),
                        ),
                        SizedBox(height: 40,),
-                       RoundButton('Login',null),
+                       RoundButton('Login',signIn),
                        SizedBox(height: 40,),
                        Container(
                          width: MediaQuery.of(context).size.width,

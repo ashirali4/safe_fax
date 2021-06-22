@@ -4,7 +4,7 @@ class Firebase_Handler{
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-   Future<dynamic> register(RegistrationUser registrationUser) async {
+   Future register(RegistrationUser registrationUser) async {
      var content;
      bool error=true;
     try {
@@ -17,7 +17,6 @@ class Firebase_Handler{
       if (user != null) {
          error=false;
          content=user;
-         print(user.toString()+"iser");
       } else {
         error=true;
 
@@ -35,7 +34,7 @@ class Firebase_Handler{
     };
   }
 
-   Future<dynamic> signIn(String username,String password) async {
+   Future signIn(String username,String password) async {
     var content;
     bool error=true;
     try {
